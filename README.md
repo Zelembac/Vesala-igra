@@ -1,1 +1,1 @@
-# Vesala-igra
+Vesala igra
