@@ -1,0 +1,25 @@
+[{
+    "word":"APPLE",
+    "hint":"fruit",
+    "id":"0"
+},{
+    "word":"AIRPLANE",
+    "hint":"transport device",
+    "id":"1"
+},{
+    "word":"LEMMON",
+    "hint":"fruit",
+    "id":"2"
+},{
+    "word":"CAR",
+    "hint":"transport device",
+    "id":"3"
+},{
+    "word":"BANANA",
+    "hint":"fruit",
+    "id":"4"
+},{
+    "word":"BICYCLE",
+    "hint":"transport device",
+    "id":"5"
+}]
