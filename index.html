@@ -9,6 +9,19 @@
 </head>
 <body>
     <div id="container">
+        <div id="nameAsk">
+            <div id="nameBox">
+                <h2>Write your name</h2>
+                <input type="text" id="inputName">
+                <button id="chuse">Chuse</button>
+            </div>
+        </div>
+        <div id="result">
+            <div id="resultBox">
+                <h3 id="endMessage"></h3>
+                <button id="tryAgain">Try again</button>
+            </div>
+        </div>
         <div id="gameUpper">
             <div id="hangman">
                 
@@ -18,46 +31,49 @@
                 
 
             </div>
+            <div id="highScoreBox"><h3>High Score</h3>
+            <h3 id="highScore"></h3></div>
 
         </div>
         <div id="gameLower">
             <div id="left">
                 <div  id="guessingWholeWord">
                     <input type="text" id="wholeWord">
-                    <button id="guess" class="staringState">Try to guess whole word</button>
+                    <button id="guess" class="disabledState">Try to guess whole word</button>
                 </div>
-                <button id="hint" class="staringState">Hint</button><h3 id="hintWord"></h3>
+                <button id="hint" class="disabledState">Hint</button><h3 id="hintWord"></h3>
+                <button id="nameCh">Change name</button>
                 <button id="getWord">Get word</button>
 
             </div>
             
             <div id="chosenWordInput">
-                <button class="btn staringState">A</button>
-                <button class="btn staringState">B</button>
-                <button class="btn staringState">C</button>
-                <button class="btn staringState">D</button>
-                <button class="btn staringState">E</button>
-                <button class="btn staringState">F</button>
-                <button class="btn staringState">G</button>
-                <button class="btn staringState">H</button>
-                <button class="btn staringState">I</button>
-                <button class="btn staringState">J</button>
-                <button class="btn staringState">K</button>
-                <button class="btn staringState">L</button>
-                <button class="btn staringState">M</button>
-                <button class="btn staringState">N</button>
-                <button class="btn staringState">O</button>
-                <button class="btn staringState">P</button>
-                <button class="btn staringState">Q</button>
-                <button class="btn staringState">R</button>
-                <button class="btn staringState">S</button>
-                <button class="btn staringState">T</button>
-                <button class="btn staringState">U</button>
-                <button class="btn staringState">V</button>
-                <button class="btn staringState">W</button>
-                <button class="btn staringState">X</button>
-                <button class="btn staringState">Y</button>
-                <button class="btn staringState">Z</button>
+                <button class="btn disabledState">A</button>
+                <button class="btn disabledState">B</button>
+                <button class="btn disabledState">C</button>
+                <button class="btn disabledState">D</button>
+                <button class="btn disabledState">E</button>
+                <button class="btn disabledState">F</button>
+                <button class="btn disabledState">G</button>
+                <button class="btn disabledState">H</button>
+                <button class="btn disabledState">I</button>
+                <button class="btn disabledState">J</button>
+                <button class="btn disabledState">K</button>
+                <button class="btn disabledState">L</button>
+                <button class="btn disabledState">M</button>
+                <button class="btn disabledState">N</button>
+                <button class="btn disabledState">O</button>
+                <button class="btn disabledState">P</button>
+                <button class="btn disabledState">Q</button>
+                <button class="btn disabledState">R</button>
+                <button class="btn disabledState">S</button>
+                <button class="btn disabledState">T</button>
+                <button class="btn disabledState">U</button>
+                <button class="btn disabledState">V</button>
+                <button class="btn disabledState">W</button>
+                <button class="btn disabledState">X</button>
+                <button class="btn disabledState">Y</button>
+                <button class="btn disabledState">Z</button>
                 
 
             </div>
