@@ -193,7 +193,8 @@ document.getElementById("guess").addEventListener("click", function () {
     if (brW == wordArray.length) {
       setTimeout(function () {
         poinsts();
-        wonD();
+        poinstBr = poinstBr * 1.5;
+        won();
         LSOfilling();
         higest();
         reset();
@@ -259,11 +260,7 @@ function won() {
   document.getElementById("endMessage").textContent =
     "You won with " + poinstBr + " points";
 }
-function wonD() {
-  document.getElementById("result").style.display = "flex";
-  document.getElementById("endMessage").textContent =
-    "You won with " + poinstBr * 1.5 + " points";
-}
+
 function lost() {
   document.getElementById("result").style.display = "flex";
   document.getElementById("endMessage").textContent =
