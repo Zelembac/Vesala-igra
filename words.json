@@ -32,6 +32,22 @@
     "id":"7"
 },{
     "word":"MORBIUS",
-    "hint":"transport device",
+    "hint":"movie",
     "id":"8"
+},{
+    "word":"VULCANO",
+    "hint":"geographical term",
+    "id":"9"
+},{
+    "word":"MPUNTAIN",
+    "hint":"geographical term",
+    "id":"10"
+},{
+    "word":"RIVER",
+    "hint":"geographical term",
+    "id":"11"
+},{
+    "word":"OCEAN",
+    "hint":"geographical term",
+    "id":"12"
 }]

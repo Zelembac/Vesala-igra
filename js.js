@@ -26,7 +26,7 @@ function gameStart() {
   document.getElementById("result").style.display = "none";
 
   for (let i = 0; i < lettersBtn.length; i++) {
-    console.log(lettersBtn[i].classList);
+    // console.log(lettersBtn[i].classList);
     lettersBtn[i].classList.remove("disabledState");
   }
   document.getElementById("hint").classList.remove("disabledState");
@@ -37,7 +37,7 @@ function gameStart() {
       return response.json();
     })
     .then((response) => {
-      console.log(response);
+      // console.log(response);
       data = response;
       write(response);
     });
@@ -76,7 +76,7 @@ function write(data) {
   let html = "";
 
   let random = Math.floor(Math.random() * lenght);
-  console.log(random);
+  // console.log(random);
   data.forEach((element) => {
     if (random == element.id) {
       wordArray = element.word.split("");
@@ -97,8 +97,11 @@ function write(data) {
 function hint(data) {
   document.getElementById("hint").addEventListener("click", function () {
     document.getElementById("hintWord").textContent = data.hint;
-    brH = 2;
-    console.log(brH + "sadasdasasd");
+    let unactive = document.getElementsByClassName("unactiveBtn");
+
+    brS = unactive.length;
+    brH = brS + 2;
+    // console.log(brH + "sadasdasasd");
     draw(brH);
     document.getElementById("hint").classList.add("disabledState");
   });
@@ -111,7 +114,7 @@ for (let i = 0; i < lettersBtn.length; i++) {
     let br = 0;
 
     lettersBtnValue = lettersBtn[i].textContent;
-    console.log(lettersBtnValue);
+    // console.log(lettersBtnValue);
     for (let i = 0; i < wordArray.length; i++) {
       if (wordArray[i] == lettersBtnValue) {
         document.getElementById(`letter-${i}`).value = wordArray[i];
@@ -133,11 +136,15 @@ function draw(br) {
 
 function provera() {
   let unactive = document.getElementsByClassName("unactiveBtn");
+  if (brH != 0) {
+    brS = unactive.length + 2;
+  } else {
+    brS = unactive.length;
+  }
 
-  brS = unactive.length + brH;
   draw(brS);
 
-  console.log(brS);
+  // console.log(brS);
 
   if (brS >= 6) {
     setTimeout(function () {
@@ -155,7 +162,7 @@ function provera() {
       brT++;
     }
   }
-  console.log(brT);
+  // console.log(brT);
   if (brT == wordArray.length) {
     setTimeout(function () {
       poinsts();
@@ -171,7 +178,7 @@ function protection() {
   let activeB = document.getElementsByClassName("activeBtn").length;
 
   let unactiveB = document.getElementsByClassName("unactiveBtn").length;
-  console.log("ub" + unactiveB + "ab" + activeB);
+  // console.log("ub" + unactiveB + "ab" + activeB);
   if (activeB > 0 || unactiveB > 0) {
     document.getElementById("guess").classList.add("disabledState");
   }
@@ -180,13 +187,13 @@ function protection() {
 document.getElementById("guess").addEventListener("click", function () {
   let value = document.getElementById("wholeWord").value;
   let valueArray = value.toUpperCase().split("");
-  console.log(value);
+  // console.log(value);
   let required = /[A-z]+/;
   if (required.test(value)) {
     for (let i = 0; i < valueArray.length; i++) {
-      console.log("vA" + valueArray[i] + "wA" + wordArray[i]);
+      // console.log("vA" + valueArray[i] + "wA" + wordArray[i]);
       if (valueArray[i] == wordArray[i]) {
-        console.log("vA" + valueArray[i] + "wA" + wordArray[i]);
+        // console.log("vA" + valueArray[i] + "wA" + wordArray[i]);
         brW++;
       }
     }
@@ -222,13 +229,13 @@ document.getElementById("chuse").addEventListener("click", function () {
 });
 function poinsts() {
   let srcImg = document.querySelector("img").src;
-  console.log(srcImg);
+  // console.log(srcImg);
   for (let i = 0; i < 7; i++) {
-    console.log(srcImg.indexOf(i));
+    // console.log(srcImg.indexOf(i));
     if (srcImg.indexOf(`${i}.png`) != -1) {
-      console.log(i + "iovo");
+      // console.log(i + "iovo");
       poinstBr = 600 - i * 100;
-      console.log(poinstBr + "ovo");
+      // console.log(poinstBr + "ovo");
     }
   }
 }
@@ -245,15 +252,38 @@ function LSOfilling() {
   localStorage.setItem("LSO", JSON.stringify(LSArray));
 }
 function higest() {
-  let max = 0;
-  let maxN = "";
-  LSArray.forEach((element) => {
-    if (element.PPoints > max) {
-      max = element.PPoints;
-      maxN = element.Pname;
+  document.getElementById("highScore").innerHTML = ``;
+
+  let arrayMax = LSArray;
+  // LSArray.forEach((element) => {
+  //   console.log(element);
+  //   arrayMax.push(element);
+  // });
+
+  console.log(arrayMax);
+
+  for (let i = 0; i < 5; i++) {
+    let max = 0;
+    let maxN = "";
+    let j = 0;
+    let maxJ = 0;
+    arrayMax.forEach((element) => {
+      if (element.PPoints > max) {
+        max = element.PPoints;
+        maxN = element.Pname;
+        maxJ = j;
+      }
+      j++;
+    });
+    if (arrayMax.length != 0) {
+      arrayMax.splice(maxJ, 1);
+      document.getElementById(
+        "highScore"
+      ).innerHTML += `<h3 id="highScoreElem">${
+        i + 1
+      }.  ${maxN}  :  ${max}</h3>`;
     }
-  });
-  document.getElementById("highScore").textContent = maxN + "  :  " + max;
+  }
 }
 function won() {
   document.getElementById("result").style.display = "flex";
