@@ -1,0 +1,527 @@
+@font-face {
+    font-family: myFont;
+    src: url(font/IndieFlower-Regular.ttf);
+}
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
+    font-family: 'myFont', Courier, monospace;
+}
+footer{
+    height: 5%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+header{
+    height: 8%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#container{
+    background-image: url(img/paper.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100vw;
+    height: 100vh;
+}
+#gameUpper{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 50%;
+
+}
+#gameLower{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 37%;
+}
+#hangman {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40%;
+    height: 100%;
+}
+#hangWord{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 78%;
+    height: 100%;
+
+}
+
+#hangman img{
+    width: 100%;
+    height: 100%;
+
+
+}
+#word{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    height: 100%;
+}
+#chosenWordInput{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 50%;
+    height: 100%;
+}
+.btn{
+    font-size: 1.2em;
+    margin: 0 1%;
+    width: 9%;
+    height: 22%;
+    background-color: rgba(240, 248, 255, 0);
+    border-radius: 0.5vw;
+    
+}
+.btn:hover{
+    font-size: 1.3em;
+    box-shadow: 0px 0px 7px 5px #0000003d;
+    
+    background-color: rgba(0, 0, 0, 0.28);
+
+}
+.btnOther{
+    font-size: 1.1em;
+    background-color: rgba(240, 248, 255, 0);
+    border-radius: 0.5vw;
+    
+
+}
+.btnOther:hover{
+    
+    box-shadow: 0px 0px 7px 5px #0000003d;
+    
+    background-color: rgba(0, 0, 0, 0.28);
+
+
+}
+#guess:hover{
+    
+    box-shadow: 0px 0px 7px 5px #0000003d;
+    
+    background-color: rgba(0, 0, 0, 0.28);
+
+
+}
+.inputSt{
+    background-color: rgba(240, 248, 255, 0);
+    border: solid black 0.2vw;
+    border-radius: 0.3vw;
+    width: 40%;
+    
+}
+.inputSt:focus{
+    box-shadow: 0px 0px 7px 5px #0000003d;
+    
+   
+
+}
+.wordInput{
+    font-size: 1.3em;
+    text-align: center;
+    border: none;
+    width: 2vw;
+    height: 16%;
+    border-bottom: solid 5px black;
+    background: none;
+    margin: 0 1vw;
+
+}
+.wordInputSpace{
+    text-align: center;
+    border: none;
+    width: 2vw;
+    height: 16%;
+    
+    background: none;
+    margin: 0 1vw;
+
+}
+.activeBtn{
+    background-color: green;
+    cursor: not-allowed;
+   pointer-events: none;
+}
+.unactiveBtn{
+    background-color: red;
+    cursor: not-allowed;
+   pointer-events: none;
+}
+#hangman{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30%;
+    height: 100%;
+    
+}
+ #hangman img{
+    width: 70%;
+    height: 100%;
+} 
+.disabledState{
+    cursor: not-allowed;
+   pointer-events: none;
+
+}
+#left{
+    height: 70%;
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+}
+#highScoreBox{
+    font-size: 1.5em;
+    width: 20%;
+    height: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border: solid rgba(0, 0, 0, 0.794) 0.3vw;
+    border-radius: 1vw;
+}
+
+#highScore{
+    height: 80%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+#highScoreElem{
+    width: 95%;
+    height: 20%;
+}
+#nameAsk {
+     display: none;  
+    left: 0;
+    top:0;
+    position: fixed;
+    z-index: 10000;
+    padding-top: 100px;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0, 0, 0, 0.7);
+    
+    align-items: center;
+    justify-content: center;
+}
+#nameBox{
+    margin: 0 auto;
+    width: 50%;
+    height: 50%;
+    background-image: url(img/paperSm.jpg);
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+}
+#chat{
+    display: none;  
+    left: 0;
+    top:0;
+    position: fixed;
+    z-index: 10000;
+    padding-top: 100px;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0, 0, 0, 0.7);
+    
+    align-items: center;
+    justify-content: center;
+
+}
+#chat-box{
+    margin: 0 auto;
+    width: 60%;
+    height: 90%;
+    background-image: url(img/paperSm.jpg);
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+
+}
+#chat-messages{
+    width: 100%;
+    height: 90%;
+}
+#chat-write{
+    width: 100%;
+    height: 9%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+#input-message{
+    width: 80%;
+    height: 100%;
+}
+#send{
+    width: 20%;
+    height: 100%;
+
+}
+.show-chat{
+    width: 5vw;
+    height: 5vw;
+    background-color: rgba(255, 255, 240, 0.302);
+    position: fixed;
+    bottom: 10px;
+    left: 10px;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+}
+.hide-chat{
+    width: 5vw;
+    height: 5vw;
+    background-color: rgba(255, 255, 240, 0.302);
+    position: fixed;
+    bottom: 10px;
+    left: 10px;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+}
+#result{
+    display: none;  
+    left: 0;
+    top:0;
+    position: fixed;
+    z-index: 10000;
+    padding-top: 100px;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0, 0, 0, 0.7);
+    
+    align-items: center;
+    justify-content: center;
+
+}
+#resultBox{
+    margin: 0 auto;
+    width: 50%;
+    height: 50%;
+    background-image: url(img/paperSm.jpg);
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+
+}
+#guessingWholeWord{
+    width: 60%;
+    height: 20%;
+    display: flex;
+    align-items: center;
+    justify-self: center;
+    
+}
+.btnOther{
+    width: 30%;
+    height: 15%;
+}
+#guess{
+    width: 60%;
+    height: 100%;
+}
+.inputSt{
+    height: 10%;
+    width: 40%;
+}
+
+#wholeWord{
+    height: 100%;
+    width: 50%;
+}
+@media screen and (max-width: 768px) {
+    #container{
+        height: 200vh;
+    }
+    footer{
+        height: 5%;
+    }
+    #gameUpper{
+       
+        flex-wrap: wrap;
+        height: 47%;
+        flex-direction: column-reverse;
+    }
+    #hangWord{
+        width: 100%;
+        height: 70%;
+    }
+    #hangman{
+        width: 40%;
+        height: 80%;
+    }
+    #word{
+        width: 60%;
+        height: 80%;
+    }
+    #highScoreBox{
+        width: 90%;
+        height: 30%;
+    }
+    #highScore{
+        height: 80%;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+    #highScoreElem{
+        width: 40%;
+        height: 20%;
+    }
+    .wordInput{
+        width: 3vw;
+    }
+    #gameLower{
+        height: 38%;
+        flex-direction: column-reverse;
+    }
+    #chosenWordInput{
+        width: 90%;
+        height: 50%;
+    }
+    #left{
+        height: 40%;
+    }
+    #guessingWholeWord{
+        width: 100%;
+        height: 35%;
+        display: flex;
+        align-items: center;
+        justify-self: center;
+        
+    }
+    .btnOther{
+        width: 90%;
+        height: 15%;
+    }
+    #guess{
+        width: 30%;
+        height: 100%;
+    }
+    .inputSt{
+        height: 30%;
+        width: 90%;
+    }
+
+    #wholeWord{
+        height: 100%;
+        width: 70%;
+    }
+}
+@media screen and (max-width: 600px) {
+    #container{
+        height: 200vh;
+    }
+    #gameUpper{
+       
+        flex-wrap: wrap;
+        height: 40%;
+        flex-direction: column-reverse;
+    }
+    #hangWord{
+        width: 100%;
+        height: 60%;
+    }
+    #hangman{
+        width: 40%;
+        height: 90%;
+    }
+    #word{
+        width: 60%;
+        height:80%;
+    }
+    #highScoreBox{
+        width: 80%;
+        height: 40%;
+        font-size: 1.2em;
+    }
+    #highScore{
+        height: 80%;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+    #highScoreElem{
+        width: 40%;
+        height: 20%;
+    }
+    .wordInput{
+        width: 4vw;
+    }
+    #gameLower{
+        height: 47%;
+        flex-direction: column-reverse;
+    }
+    #chosenWordInput{
+        width: 90%;
+        height: 30%;
+    }
+    #left{
+        height: 60%;
+    }
+    #guessingWholeWord{
+        width: 90%;
+        height: 30%;
+        display: flex;
+        align-items: center;
+        justify-self: center;
+        flex-direction: column;
+    }
+    .btnOther{
+        width: 90%;
+        height: 15%;
+    }
+    #guess{
+        height: 50%;
+        width:90% ;
+    }
+    .inputSt{
+        height: 30%;
+        width: 90%;
+    }
+
+    #wholeWord{
+        height: 50%;
+        width: 90%;
+    }
+
+}

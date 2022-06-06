@@ -1,0 +1,25 @@
+{
+  "name": "node-try",
+  "version": "1.0.0",
+  "description": "igra vesala",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "devStart":"nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "Zelembac"
+  },
+  "author": "Lazar Djurkovic",
+  "license": "ISC",
+  "dependencies": {
+    "connect": "^3.7.0",
+    "express": "^4.18.1",
+    "serve-static": "^1.15.0",
+    "socket.io": "^4.5.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.16"
+  }
+}
