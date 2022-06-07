@@ -319,18 +319,25 @@ window.addEventListener("load", init);
 function init() {
   let socket = io.connect("http://localhost:5000");
 
+  function writeInChat(data) {
+    document.getElementById("chat-messages").innerHTML += data;
+  }
+
   document.getElementById("send").addEventListener("click", function () {
-    socket.emit("chat", {
-      message: document.getElementById("input-message").value,
-    });
+    let messageV = document.getElementById("input-message").value;
+    if (messageV != "") {
+      socket.emit("chat", {
+        message: document.getElementById("input-message").value,
+      });
+    }
   });
   socket.on("chat-ovo", (data) => {
     console.log(data);
     document.getElementById("input-message").value = "";
     document.getElementById("feedback").innerHTML = "";
-    document.getElementById(
-      "chat-messages"
-    ).innerHTML += `<p class="message"><span class="nik">${data.username}</span>${data.message}</p>`;
+    writeInChat(
+      `<p class="message"><span class="nik">${data.username}:</span>  ${data.message}</p>`
+    );
   });
   document.getElementById("chuse").addEventListener("click", function () {
     socket.emit("newuser", {
@@ -345,17 +352,20 @@ function init() {
   socket.on("kuca", (data) => {
     document.getElementById(
       "feedback"
-    ).innerHTML = `<p><i>${data.username}kuca...</i></p>`;
+    ).innerHTML = `<p><i>${data.username} kuca...</i></p>`;
   });
   socket.on("user-connected", (data) => {
-    document.getElementById(
-      "chat-messages"
-    ).innerHTML += `<p class="message">${data.username} joined</p>`;
+    writeInChat(`<p class="message">${data.username} joined</p>`);
+  });
+  document.getElementById("nameCh").addEventListener("click", function () {
+    socket.emit("dissconnected");
+  });
+
+  window.addEventListener("beforeunload", function () {
+    socket.emit("dissconnected");
   });
   socket.on("user-dissconnected", (data) => {
-    document.getElementById(
-      "chat-messages"
-    ).innerHTML += `<p class="message">${data.username} left</p>`;
+    writeInChat(`<p class="message">${data.username} left</p>`);
   });
 }
 // `

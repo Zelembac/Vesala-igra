@@ -13,10 +13,12 @@ io.on("connection", (socket) => {
 
   socket.on("newuser", (data) => {
     socket.broadcast.emit("user-connected", { username: data.username });
+    socket.emit("user-connected", { username: data.username });
     socket.username = data.username;
   });
-  socket.on("dissconnect", () => {
+  socket.on("dissconnected", (data) => {
     socket.broadcast.emit("user-dissconnected", { username: socket.username });
+    socket.emit("user-dissconnected", { username: socket.username });
   });
 
   socket.on("chat", (data) => {
