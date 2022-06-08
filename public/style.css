@@ -15,12 +15,14 @@ footer{
     display: flex;
     align-items: center;
     justify-content: center;
+    font-size: 1.1em;
 }
 header{
     height: 8%;
     display: flex;
     align-items: center;
     justify-content: center;
+    font-size: 1.3em;
 }
 #container{
     background-image: url(img/paper.jpg);
@@ -29,7 +31,7 @@ header{
     width: 100vw;
     height: 100vh;
 }
-#gameUpper{
+#game-upper{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -37,7 +39,7 @@ header{
     height: 50%;
 
 }
-#gameLower{
+#game-lower{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -51,7 +53,7 @@ header{
     width: 40%;
     height: 100%;
 }
-#hangWord{
+#hang-word{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -73,7 +75,7 @@ header{
     width: 50%;
     height: 100%;
 }
-#chosenWordInput{
+#chosen-word-input{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
@@ -98,14 +100,17 @@ header{
     background-color: rgba(0, 0, 0, 0.28);
 
 }
-.btnOther{
-    font-size: 1.1em;
+.btn-other{
+    font-size: 1.2em;
     background-color: rgba(240, 248, 255, 0);
     border-radius: 0.5vw;
+    width: 30%;
+    height: 15%;
     
 
 }
-.btnOther:hover{
+
+.btn-other:hover{
     
     box-shadow: 0px 0px 7px 5px #0000003d;
     
@@ -121,20 +126,20 @@ header{
 
 
 }
-.inputSt{
+.input-style{
     background-color: rgba(240, 248, 255, 0);
     border: solid black 0.2vw;
     border-radius: 0.3vw;
     width: 40%;
     
 }
-.inputSt:focus{
+.input-style:focus{
     box-shadow: 0px 0px 7px 5px #0000003d;
     
    
 
 }
-.wordInput{
+.word-input{
     font-size: 1.4em;
     text-align: center;
     border: none;
@@ -146,7 +151,7 @@ header{
     font-weight: bold;
 
 }
-.wordInputSpace{
+.word-input-space{
     text-align: center;
     border: none;
     width: 2vw;
@@ -156,12 +161,12 @@ header{
     margin: 0 1vw;
 
 }
-.activeBtn{
+.active-btn{
     background-color: green;
     cursor: not-allowed;
    pointer-events: none;
 }
-.unactiveBtn{
+.unactive-btn{
     background-color: red;
     cursor: not-allowed;
    pointer-events: none;
@@ -178,7 +183,7 @@ header{
     width: 70%;
     height: 100%;
 } 
-.disabledState{
+.disabled-state{
     cursor: not-allowed;
    pointer-events: none;
 
@@ -191,7 +196,7 @@ header{
     justify-content: space-between;
     flex-direction: column;
 }
-#highScoreBox{
+#high-score-box{
     font-size: 1.5em;
     width: 20%;
     height: 80%;
@@ -203,7 +208,7 @@ header{
     border-radius: 1vw;
 }
 
-#highScore{
+#high-score{
     height: 80%;
     width: 100%;
     display: flex;
@@ -211,11 +216,11 @@ header{
     align-items: center;
     flex-wrap: wrap;
 }
-#highScoreElem{
+#high-score-elem{
     width: 95%;
     height: 20%;
 }
-#nameAsk {
+#name-ask {
      display: none;  
     left: 0;
     top:0;
@@ -230,7 +235,7 @@ header{
     align-items: center;
     justify-content: center;
 }
-#nameBox{
+#name-box{
     margin: 0 auto;
     width: 50%;
     height: 50%;
@@ -269,12 +274,12 @@ header{
 }
 #chat-messages{
     width: 100%;
-    height: 90%;
+    height: 85%;
     overflow: auto;
 }
 #chat-write{
     width: 100%;
-    height: 9%;
+    height: 10%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -283,18 +288,18 @@ header{
 .message {
     margin: 0px;
     width: 100%;
-    height: 10%;
+    min-height: 10%;
     font-size: 2.6vh;
     
     padding: 1vh;
 }
 
 .message:nth-child(even) {
-    background-color: #13212520;
+    background-color: rgba(245, 222, 179, 0.404);
 }
 
 .message:nth-child(odd) {
-    background-color: #151b2045;
+    background-color: rgba(245, 222, 179, 0.609);
 }
 #input-message{
     width: 80%;
@@ -305,10 +310,20 @@ header{
     height: 100%;
 
 }
-.show-chat{
-    width: 5vw;
-    height: 5vw;
-    background-color: rgba(255, 255, 240, 0.302);
+#feedback{
+    width: 100%;
+    height: 5%;
+    
+ 
+   
+    background-color: rgb(245, 222, 179);
+    
+
+}
+.show-chat , .hide-chat{
+    width: 5%;
+    height: 10%;
+    background-color: rgba(255, 255, 240, 0.83);
     position: fixed;
     bottom: 10px;
     left: 10px;
@@ -317,22 +332,10 @@ header{
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 10px;
+    border: solid black 3px;
+    border-radius: 20px;
 }
-.hide-chat{
-    width: 5vw;
-    height: 5vw;
-    background-color: rgba(255, 255, 240, 0.302);
-    position: fixed;
-    bottom: 10px;
-    left: 10px;
-    font-weight: bold;
-    
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 10px;
-}
+
 #result{
     display: none;  
     left: 0;
@@ -349,7 +352,7 @@ header{
     justify-content: center;
 
 }
-#resultBox{
+#result-box{
     margin: 0 auto;
     width: 50%;
     height: 50%;
@@ -360,7 +363,7 @@ header{
     flex-direction: column;
 
 }
-#guessingWholeWord{
+#guessing-whole-word{
     width: 60%;
     height: 20%;
     display: flex;
@@ -368,20 +371,17 @@ header{
     justify-self: center;
     
 }
-.btnOther{
-    width: 30%;
-    height: 15%;
-}
+
 #guess{
     width: 60%;
     height: 100%;
 }
-.inputSt{
+.input-style{
     height: 10%;
     width: 40%;
 }
 
-#wholeWord{
+#whole-word{
     height: 100%;
     width: 50%;
 }
@@ -392,13 +392,13 @@ header{
     footer{
         height: 5%;
     }
-    #gameUpper{
+    #game-upper{
        
         flex-wrap: wrap;
         height: 47%;
         flex-direction: column-reverse;
     }
-    #hangWord{
+    #hang-word{
         width: 100%;
         height: 70%;
     }
@@ -410,11 +410,11 @@ header{
         width: 60%;
         height: 80%;
     }
-    #highScoreBox{
+    #high-score-box{
         width: 90%;
         height: 30%;
     }
-    #highScore{
+    #high-score{
         height: 80%;
         width: 100%;
         display: flex;
@@ -422,25 +422,25 @@ header{
         align-items: center;
         flex-wrap: wrap;
     }
-    #highScoreElem{
+    #high-score-elem{
         width: 40%;
         height: 20%;
     }
-    .wordInput{
+    .word-input{
         width: 3vw;
     }
-    #gameLower{
+    #game-lower{
         height: 38%;
         flex-direction: column-reverse;
     }
-    #chosenWordInput{
+    #chosen-word-input{
         width: 90%;
         height: 50%;
     }
     #left{
         height: 40%;
     }
-    #guessingWholeWord{
+    #guessing-whole-word{
         width: 100%;
         height: 35%;
         display: flex;
@@ -448,7 +448,7 @@ header{
         justify-self: center;
         
     }
-    .btnOther{
+    .btn-other{
         width: 90%;
         height: 15%;
     }
@@ -456,27 +456,31 @@ header{
         width: 30%;
         height: 100%;
     }
-    .inputSt{
+    .input-style{
         height: 30%;
         width: 90%;
     }
 
-    #wholeWord{
+    #whole-word{
         height: 100%;
         width: 70%;
+    }
+    .show-chat , .hide-chat{
+        width: 10%;
+        
     }
 }
 @media screen and (max-width: 600px) {
     #container{
         height: 200vh;
     }
-    #gameUpper{
+    #game-upper{
        
         flex-wrap: wrap;
         height: 40%;
         flex-direction: column-reverse;
     }
-    #hangWord{
+    #hangword{
         width: 100%;
         height: 60%;
     }
@@ -488,12 +492,12 @@ header{
         width: 60%;
         height:80%;
     }
-    #highScoreBox{
+    #high-score-box{
         width: 80%;
         height: 40%;
         font-size: 1.2em;
     }
-    #highScore{
+    #high-score{
         height: 80%;
         width: 100%;
         display: flex;
@@ -501,25 +505,25 @@ header{
         align-items: center;
         flex-wrap: wrap;
     }
-    #highScoreElem{
+    #high-score-elem{
         width: 40%;
         height: 20%;
     }
-    .wordInput{
+    .word-input{
         width: 4vw;
     }
-    #gameLower{
+    #game-lower{
         height: 47%;
         flex-direction: column-reverse;
     }
-    #chosenWordInput{
+    #chosen-word-input{
         width: 90%;
         height: 30%;
     }
     #left{
         height: 60%;
     }
-    #guessingWholeWord{
+    #guessing-whole-word{
         width: 90%;
         height: 30%;
         display: flex;
@@ -527,7 +531,7 @@ header{
         justify-self: center;
         flex-direction: column;
     }
-    .btnOther{
+    .btn-other{
         width: 90%;
         height: 15%;
     }
@@ -535,14 +539,18 @@ header{
         height: 50%;
         width:90% ;
     }
-    .inputSt{
+    .input-style{
         height: 30%;
         width: 90%;
     }
 
-    #wholeWord{
+    #whole-word{
         height: 50%;
         width: 90%;
+    }
+    .show-chat , .hide-chat{
+        width: 15%;
+        
     }
 
 }
