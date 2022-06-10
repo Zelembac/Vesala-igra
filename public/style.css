@@ -102,6 +102,7 @@ header{
 }
 .btn-other{
     font-size: 1.2em;
+    font-weight: 500;
     background-color: rgba(240, 248, 255, 0);
     border-radius: 0.5vw;
     width: 30%;
@@ -131,6 +132,7 @@ header{
     border: solid black 0.2vw;
     border-radius: 0.3vw;
     width: 40%;
+    font-size: 1em;
     
 }
 .input-style:focus{
@@ -162,12 +164,12 @@ header{
 
 }
 .active-btn{
-    background-color: green;
+    background-color: rgb(0, 192, 0);
     cursor: not-allowed;
    pointer-events: none;
 }
 .unactive-btn{
-    background-color: red;
+    background-color: rgb(255, 0, 0);
     cursor: not-allowed;
    pointer-events: none;
 }
@@ -217,6 +219,8 @@ header{
     flex-wrap: wrap;
 }
 #high-score-elem{
+    font-size: 1.1em;
+    font-weight: 600;
     width: 95%;
     height: 20%;
 }
@@ -333,17 +337,10 @@ header{
     box-shadow: 0px 0px 7px 5px #0000003d;
 
 }
-
-/* .message:nth-child(even) {
-    background-color: rgba(245, 222, 179, 0.404);
-}
-
-.message:nth-child(odd) {
-    background-color: rgba(245, 222, 179, 0.609);
-} */
 #input-message{
     width: 80%;
     height: 100%;
+    font-size: 1em;
 }
 #send{
     width: 20%;
@@ -449,6 +446,7 @@ header{
     #high-score-box{
         width: 90%;
         height: 30%;
+        border: solid 3px black;
     }
     #high-score{
         height: 80%;
@@ -484,12 +482,16 @@ header{
         justify-self: center;
         
     }
+    .btn{
+        border-radius: 0.8vw;
+    }
     .btn-other{
         width: 90%;
         height: 15%;
+        border-radius: 0.8vw;
     }
     #guess{
-        width: 30%;
+        width: 40%;
         height: 100%;
     }
     .input-style{
@@ -499,7 +501,7 @@ header{
 
     #whole-word{
         height: 100%;
-        width: 70%;
+        width: 60%;
     }
     .show-chat , .hide-chat{
         width: 10%;
@@ -513,25 +515,30 @@ header{
     #game-upper{
        
         flex-wrap: wrap;
-        height: 40%;
+        height: 50%;
         flex-direction: column-reverse;
     }
-    #hangword{
+    #hang-word{
         width: 100%;
-        height: 60%;
+        height: 55%;
     }
     #hangman{
         width: 40%;
         height: 90%;
+    }
+    #hangman img{
+        width: 90%;
+        
     }
     #word{
         width: 60%;
         height:80%;
     }
     #high-score-box{
-        width: 80%;
-        height: 40%;
+        width: 60%;
+        height: 45%;
         font-size: 1.2em;
+        border: solid 2px black;
     }
     #high-score{
         height: 80%;
@@ -542,8 +549,9 @@ header{
         flex-wrap: wrap;
     }
     #high-score-elem{
-        width: 40%;
-        height: 20%;
+        text-align: center;
+        width: 90%;
+        height: 15%;
     }
     .word-input{
         width: 4vw;
@@ -567,9 +575,13 @@ header{
         justify-self: center;
         flex-direction: column;
     }
+    .btn{
+        border-radius: 1vw;
+    }
     .btn-other{
         width: 90%;
         height: 15%;
+        border-radius: 1vw;
     }
     #guess{
         height: 50%;
