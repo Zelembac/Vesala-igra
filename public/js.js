@@ -306,7 +306,7 @@ function init() {
     document.getElementById("input-message").value = "";
     document.getElementById("feedback").innerHTML = "";
     writeInChat(
-      `<p class="message"><span class="nik">${data.username}:</span>  ${data.message}</p>`
+      `<div class="chat-message"><div class="nik">${data.username} :</div>  ${data.message}</div>`
     );
   });
 
@@ -317,20 +317,20 @@ function init() {
   document
     .getElementById("input-message")
     .addEventListener("keypress", function () {
-      socket.emit("kuca");
+      socket.emit("typing");
     });
-  socket.on("kuca", (data) => {
+  socket.on("typing", (data) => {
     document.getElementById(
       "feedback"
-    ).innerHTML = `<p><i>${data} kuca...</i></p>`;
+    ).innerHTML = `<div><i>${data} typing...</i></div>`;
   });
   socket.on("user-connected", (data) => {
-    writeInChat(`<p class="message">${data} joined</p>`);
+    writeInChat(`<div class="message">${data} joined</div>`);
   });
   document.getElementById("name-change").addEventListener("click", function () {
     socket.emit("disconnected");
   });
   socket.on("user-disconnected", (name) => {
-    writeInChat(`<p class="message">${name} disconected</p>`);
+    writeInChat(`<div class="message">${name} disconected</div>`);
   });
 }

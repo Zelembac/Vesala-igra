@@ -36,8 +36,8 @@ io.on("connection", (socket) => {
       username: users[socket.id],
     });
   });
-  socket.on("kuca", (data) => {
-    socket.broadcast.emit("kuca", users[socket.id]);
+  socket.on("typing", (data) => {
+    socket.broadcast.emit("typing", users[socket.id]);
   });
 });
 
