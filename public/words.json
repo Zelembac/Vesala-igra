@@ -39,7 +39,7 @@
     "hint":"geographical term",
     "id":"9"
 },{
-    "word":"MPUNTAIN",
+    "word":"MOUNTAIN",
     "hint":"geographical term",
     "id":"10"
 },{
@@ -50,4 +50,36 @@
     "word":"OCEAN",
     "hint":"geographical term",
     "id":"12"
+},{
+    "word":"LION",
+    "hint":"animal",
+    "id":"13"
+},{
+    "word":"SNAKE",
+    "hint":"animal",
+    "id":"14"
+},{
+    "word":"CROCODILE",
+    "hint":"animal",
+    "id":"15"
+},{
+    "word":"SHARK",
+    "hint":"animal",
+    "id":"16"
+},{
+    "word":"JEANS",
+    "hint":"clothing",
+    "id":"17"
+},{
+    "word":"SWEATER",
+    "hint":"clothing",
+    "id":"18"
+},{
+    "word":"SHIRT",
+    "hint":"clothing",
+    "id":"19"
+},{
+    "word":"SHOES",
+    "hint":"clothing",
+    "id":"20"
 }]

@@ -17,6 +17,7 @@ document.getElementById("get-word").addEventListener("click", gameStart);
 window.addEventListener("load", nameChange);
 document.getElementById("name-change").addEventListener("click", nameChange);
 function nameChange() {
+  document.getElementById("input-name").value = "";
   document.getElementById("name-ask").style.display = "flex";
 }
 
@@ -38,7 +39,7 @@ for (let i = 0; i < lettersBtn.length; i++) {
     } else {
       lettersBtn[i].classList.add("unactive-btn");
     }
-    provera();
+    check();
     protection();
   });
 }
@@ -100,7 +101,6 @@ for (let i = 0; i < showChat.length; i++) {
 window.addEventListener("load", init);
 
 function gameStart() {
-  let data = {};
   reset();
   let lettersBtn = document.getElementsByClassName("btn");
 
@@ -117,7 +117,6 @@ function gameStart() {
       return response.json();
     })
     .then((response) => {
-      data = response;
       write(response);
     });
 }
@@ -182,7 +181,7 @@ function hint(data) {
 function draw(br) {
   document.getElementById("hangman").innerHTML = `<img src="img/${br}.png">`;
 }
-function provera() {
+function check() {
   let unactive = document.getElementsByClassName("unactive-btn");
   if (brH != 0) {
     brS = unactive.length + 2;
@@ -241,7 +240,6 @@ function LSOfilling() {
 function higest() {
   document.getElementById("high-score").innerHTML = ``;
   let arrayMax = LSArray;
-  console.log(arrayMax);
   for (let i = 0; i < 5; i++) {
     let max = -1;
     let maxN = "";
@@ -298,8 +296,23 @@ function init() {
 
   document.getElementById("send").addEventListener("click", function () {
     let messageV = document.getElementById("input-message").value;
+    let required = RegExp(
+      /ruzna rec|Ruzna rec|rec ruzna|Rec ruzna|ruznu rec|Ruznu rec|rec ruznu|Rec ruznu/,
+      "g"
+    );
     if (messageV != "") {
-      socket.emit("chat", messageV);
+      let array;
+      if ((array = required.exec(messageV)) !== null) {
+        let splitmessageV = messageV.split("");
+        let badWordLength = required.lastIndex - array.index;
+        for (let i = 0; i < badWordLength; i++) {
+          splitmessageV[required.lastIndex - badWordLength + i] = "*";
+        }
+        messageV = splitmessageV.join("");
+        socket.emit("chat", messageV);
+      } else {
+        socket.emit("chat", messageV);
+      }
     }
   });
   socket.on("chat-message", (data) => {
@@ -325,12 +338,16 @@ function init() {
     ).innerHTML = `<div><i>${data} typing...</i></div>`;
   });
   socket.on("user-connected", (data) => {
-    writeInChat(`<div class="message">${data} joined</div>`);
+    if (data != 0) {
+      writeInChat(`<div class="message">${data} joined</div>`);
+    }
   });
   document.getElementById("name-change").addEventListener("click", function () {
     socket.emit("disconnected");
   });
   socket.on("user-disconnected", (name) => {
-    writeInChat(`<div class="message">${name} disconected</div>`);
+    if (name != 0 && name != null) {
+      writeInChat(`<div class="message">${name} disconected</div>`);
+    }
   });
 }
