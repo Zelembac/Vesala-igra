@@ -47,7 +47,7 @@ for (let i = 0; i < lettersBtn.length; i++) {
 document.getElementById("guess").addEventListener("click", function () {
   let value = document.getElementById("whole-word").value;
   let valueArray = value.toUpperCase().split("");
-  let required = /[A-z]+/;
+  let required = /^([A-z]+\s*)+$/;
   if (required.test(value)) {
     for (let i = 0; i < valueArray.length; i++) {
       if (valueArray[i] == wordArray[i]) {
@@ -78,7 +78,7 @@ document.getElementById("guess").addEventListener("click", function () {
 
 document.getElementById("chuse").addEventListener("click", function () {
   let value = document.getElementById("input-name").value;
-  let required = /[A-z0-9]+/;
+  let required = /^([A-z0-9]+\s*)+$/;
   if (required.test(value)) {
     playerName = value;
     document.getElementById("name-ask").style.display = "none";
@@ -337,8 +337,9 @@ function init() {
       "feedback"
     ).innerHTML = `<div><i>${data} typing...</i></div>`;
   });
+  let required = /^([A-z0-9]+\s*)+$/;
   socket.on("user-connected", (data) => {
-    if (data != 0) {
+    if (data != 0 && required.test(data)) {
       writeInChat(`<div class="message">${data} joined</div>`);
     }
   });
@@ -346,7 +347,7 @@ function init() {
     socket.emit("disconnected");
   });
   socket.on("user-disconnected", (name) => {
-    if (name != 0 && name != null) {
+    if (name != 0 && name != null && required.test(name)) {
       writeInChat(`<div class="message">${name} disconected</div>`);
     }
   });
